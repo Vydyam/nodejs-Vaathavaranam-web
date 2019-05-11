@@ -2,8 +2,9 @@
 
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
-const messageOne = document.querySelector('#message-1')
-const messageTwo = document.querySelector('#message-2')
+const messageOne = document.querySelector('#placename')
+const messageTwo = document.querySelector('#latandlong')
+const messageThree = document.querySelector('#forecast')
 
 //messageOne.textContent = 'From Javascript'
 weatherForm.addEventListener('submit', (e) => {
@@ -14,6 +15,7 @@ weatherForm.addEventListener('submit', (e) => {
 
     messageOne.textContent = 'Loading...'
     messageTwo.textContent = ''
+    messageThree.textContent = ''
     //fetch('http://localhost:3000/weather?address='+location+'').then((response) => { // Commented as Heroku launches the app and localhost doesn't work
     fetch('/weather?address='+location+'').then((response) => {
         response.json().then((data) => {
@@ -22,6 +24,7 @@ weatherForm.addEventListener('submit', (e) => {
             } else {
                 messageOne.textContent = data.location
                 messageTwo.textContent = data.forecast
+                messageThree.textContent = data.coordinates
             }
 
         })

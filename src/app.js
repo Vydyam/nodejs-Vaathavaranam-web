@@ -90,7 +90,7 @@ app.get('/weather', (req, res) => {
                 forecast: forecastData,
                 location,  // used short hand property, replacing location: location
                 address: req.query.address,
-                coordinates: latitude + ' and longitude : ' + longitude
+                coordinates: 'latitude : ' + latitude + ' and longitude : ' + longitude
             })
             
             // console.log(location + ' and co-ordinates are, latitude : ' + latitude + ' and longitude : ' + longitude)
